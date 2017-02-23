@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ingredient;
 use App\Recipe;
 use Illuminate\Http\Request;
+use Styde\Html\Facades\Alert;
 
 class IngredientsController extends Controller
 {
@@ -21,8 +22,11 @@ class IngredientsController extends Controller
         $this->validate($request,[
             'name'=>'required',
         ]);
-      //  $recipe->ingredients()->create($request->all());
-        return $recipe->name;
+        $recipe->ingredients()->create($request->all());
+
+        Alert::message('Your recipe has been created', 'success');
+
+        return redirect('recipes');
 
     }
 
