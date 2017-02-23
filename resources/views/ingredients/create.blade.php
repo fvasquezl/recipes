@@ -9,7 +9,7 @@
                     <div class="panel-body">
 
                        {!! Form::model($recipe,['route'=>['recipes.ingredients.store',$recipe],'method'=>'POST']) !!}
-                        {!! Field::text('name')!!}
+                        {!! Field::text('name','')!!}
                         {!! Form::submit('Create Ingredient!',['class'=>'btn btn-primary'] )!!}
                         {!! Form::close() !!}
                     </div>

@@ -13,12 +13,12 @@ class RecipesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return string
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = auth()->user();
-        $recipes = Recipe::where('user_id',$user->id)->get();
+        $recipes = Recipe::where('user_id',$request->user()->id)->get();
         return view('recipes.index', compact('recipes'));
     }
 
