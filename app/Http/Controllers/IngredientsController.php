@@ -33,7 +33,7 @@ class IngredientsController extends Controller
     {
         $ingredient->delete();
 
-        Alert::message('The Ingredient has been delete', 'success');
+        Alert::message('The Ingredient has been delete', 'warning');
 
         return redirect('recipes/'.$recipe->id);
     }
