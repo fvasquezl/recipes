@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ingredient;
 use App\Recipe;
 use App\User;
 use Illuminate\Http\Request;
@@ -62,7 +63,8 @@ class RecipesController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return view('recipes.show',compact('recipe'));
+        $ingredients = Ingredient::where('recipe_id',$recipe->id)->get();
+        return view('recipes.show',compact('recipe','ingredients'));
     }
 
     /**

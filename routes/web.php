@@ -31,5 +31,10 @@ Route::post('recipes/ingredients/store/{recipe}',[
     'as' => 'recipes.ingredients.store',
 ]);
 
+Route::delete('recipes/ingredients/destroy/{recipe}/{ingredient}',[
+    'uses'=>'IngredientsController@destroy',
+    'as' => 'recipes.ingredients.destroy',
+]);
+
 ///Route::resource('ingredients','IngredientsController');
 

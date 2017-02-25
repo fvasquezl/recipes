@@ -26,8 +26,16 @@ class IngredientsController extends Controller
 
         Alert::message('Your recipe has been created', 'success');
 
-        return redirect('recipes');
+        return redirect('recipes/'.$recipe->id);
+    }
 
+    public function destroy(Recipe $recipe,Ingredient $ingredient)
+    {
+        $ingredient->delete();
+
+        Alert::message('The Ingredient has been delete', 'success');
+
+        return redirect('recipes/'.$recipe->id);
     }
 
 }
